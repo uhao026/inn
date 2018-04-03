@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.mapper.InnMapper">
+   <resultMap type="com.bean.Inn" id="InnResult">
+      <id column="id" property="" jdbcType="INTEGER"/>
+      <result column="name" property="name" jdbcType="VARCHAR"/>
+      <result column="position" property="positon" jdbcType="VARCHAR"/>
+      
+      <result column="image" property="image" jdbcType="VARCHAR"/>
+      <result column="described" property="described" jdbcType="VARCHAR"/>
+      <result column="regular" property="regular" jdbcType="VARCHAR"/>
+      <result column="environment" property="environment" jdbcType="VARCHAR"/>
+      <result column="registerTime" property="registerTime" jdbcType="VARCHAR"/>
+      <result column="state" property="state" jdbcType="INTEGER"/>
+      
+      <result column="wifi" property="wifi" jdbcType="INTEGER"/>
+      <result column="kitchen" property="kitchen" jdbcType="INTEGER"/>
+      <result column="shampoo" property="shampoo" jdbcType="INTEGER"/>
+      <result column="blower" property="blower" jdbcType="INTEGER"/>
+      <result column="airConditioner" property="airConditioner" jdbcType="INTEGER"/>
+      
+      <result column="heating" property="heating" jdbcType="INTEGER"/>
+      <result column="tv" property="tv" jdbcType="INTEGER"/>
+      <result column="washing" property="washing" jdbcType="INTEGER"/>
+      
+      <result column="workArea" property="workArea" jdbcType="INTEGER"/>
+      <result column="bathroom" property="bathroom" jdbcType="INTEGER"/>
+      
+      <result column="singleRoom" property="singleRoom" jdbcType="INTEGER"/>
+      <result column="doubleRoom" property="doubleRoom" jdbcType="INTEGER"/>
+      <result column="ultraRoom" property="ultraRoom" jdbcType="INTEGER"/>
+      <result column="sixRoom" property="sixRoom" jdbcType="INTEGER"/>
+      <result column="eightRoom" property="eightRoom" jdbcType="INTEGER"/>
+      
+      <association property="user" javaType="com.bean.User">
+	   <id column="user_id" property="userId" jdbcType="INTEGER"/>
+       <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+       <result column="user_password" property="userPassword" jdbcType="VARCHAR"/>
+       <result column="user_age" property="userAge" jdbcType="INTEGER"/>
+       <result column="user_sex" property="userSex" jdbcType="VARCHAR"/>
+       <result column="user_email" property="userEmail" jdbcType="VARCHAR"/>
+       <result column="user_phone" property="userPhone" jdbcType="VARCHAR"/>
+       <result column="user_city" property="userCity" jdbcType="VARCHAR"/>
+       <result column="user_describe" property="userDescribe" jdbcType="VARCHAR"/>
+       <result column="user_register_time" property="userRegisterTime" jdbcType="VARCHAR"/>      
+		</association>
+   
+   </resultMap>
+   <insert id="hostRegister" parameterType="com.bean.Inn">
+    insert into inn(name,position,registerTime,landLordId,state) values (#{name},#{position},#{registerTime},#{user.userId},1)
+   </insert>
+   
+    
+   <select id="myInn" resultType="com.bean.Inn" parameterType="com.bean.Inn">
+    select * from Inn
+    where landLordId = #{user.userId}
+   </select>
+   
+   <update id="registerInn" parameterType="com.bean.Inn">
+   update inn set regular=#{regular},environment=#{environment},wifi=#{wifi},kitchen=#{kitchen},shampoo=#{shampoo},blower=#{blower},airConditioner=#{airConditioner},heating=#{heating},tv=#{tv},washing=#{washing},workArea=#{workArea},bathroom=#{bathroom},singleRoom=#{singleRoom},doubleRoom=#{doubleRoom},ultraRoom=#{ultraRoom},sixRoom=#{sixRoom},eightRoom=#{eightRoom}
+   where id=#{id}
+   </update>
+
+
+
+</mapper>

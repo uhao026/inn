@@ -1,0 +1,51 @@
+body{
+	margin-left:350px;
+	margin-right:350px;
+	margin-top:20px;
+}
+
+#userName{
+	margin-left:20px;
+	font-size:16px;
+}
+.contentOne,.contentTwo{
+	display:inline;
+	float:left;
+}
+#userPic{
+	width:60px;
+	height:60px;
+}
+.contentThree{
+	display:inline;
+	float:right;
+}
+#focus{
+	width:50px;
+	height:30px;
+	font-size:16px;
+	border:1px solid #00aeae;
+	background:none;
+}
+#storyPic{
+	width:660px;
+	height:500px;
+	margin-top:20px;
+}
+#storyContent{
+	margin-top:20px;
+	font-size:20px;
+}
+.storyAct{
+	margin-top:50px;
+	font-size:18px;
+	text-align:center;
+}
+.discussion{
+	margin-top:100px;
+}
+.join{
+	margin-top:20px;
+	border:1px solid gray;
+	margin-bottom:100px;
+}

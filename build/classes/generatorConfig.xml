@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+<classPathEntry location="D:\eclipse\E\workspace\MySSM\WebContent\WEB-INF\lib\mysql-connector-java-5.1.7-bin.jar"/>
+  <context id="context1" >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+     connectionURL="jdbc:mysql://localhost:3306/myssm?characterEncoding=utf8" 
+    userId="root" password="123" />
+    
+    <javaModelGenerator targetPackage="com.demo.bean" targetProject="D:\eclipse\E\workspace\MySSM\src" >
+    	 <property name="enableSubPackages" value="true"/>
+    </javaModelGenerator>
+    <sqlMapGenerator targetPackage="com.dao.mapper" targetProject="D:\eclipse\E\workspace\MySSM\src" >
+    	 <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
+    <javaClientGenerator targetPackage="com.dao.mapper" targetProject="D:\eclipse\E\workspace\MySSM\src" type="XMLMAPPER" >
+    	 <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+	
+
+	<table tableName="items" domainObjectName="Items" enableCountByExample="false"  
+            enableDeleteByExample="false" enableSelectByExample="false"  
+            enableUpdateByExample="false"/>
+	
+
+   </context>
+</generatorConfiguration>
